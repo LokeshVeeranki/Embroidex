@@ -1,12 +1,13 @@
 from pathlib import Path
+from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-%$*-6w!rqmby8o7%i8e%tjx7b)rdj@e@csdfgmv88m*l8de8fn'
+SECRET_KEY = config('SECRET_KEY', default='django-insecure-%$*-6w!rqmby8o7%i8e%tjx7b)rdj@e@csdfgmv88m*l8de8fn')
 
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=lambda x: [s.strip() for s in x.split(',')])
 
 INSTALLED_APPS = [
     'django.contrib.contenttypes',  # DRF needs this internally
@@ -48,18 +49,18 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'smartstitch_enterprises',   # change this
-        'USER': 'root',
-        'PASSWORD': 'Root@123',                 # your root password (blank if none)
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': config('DB_NAME', default='smartstitch_enterprises'),
+        'USER': config('DB_USER', default='root'),
+        'PASSWORD': config('DB_PASSWORD', default='Root@123'),
+        'HOST': config('DB_HOST', default='localhost'),
+        'PORT': config('DB_PORT', default='3306'),
     }
 }
 
 # ─── JWT Settings ─────────────────────────────────────────────────────────────
-JWT_SECRET = 'your_super_secret_jwt_key'   # change this, keep it private
-JWT_ALGORITHM = 'HS256'
-JWT_EXPIRY_HOURS = 24
+JWT_SECRET = config('JWT_SECRET', default='your_super_secret_jwt_key')
+JWT_ALGORITHM = config('JWT_ALGORITHM', default='HS256')
+JWT_EXPIRY_HOURS = config('JWT_EXPIRY_HOURS', default=24, cast=int)
 
 # ─── DRF — no default auth since we use JWT manually ─────────────────────────
 REST_FRAMEWORK = {
@@ -68,7 +69,7 @@ REST_FRAMEWORK = {
 }
 
 # ─── CORS ─────────────────────────────────────────────────────────────────────
-CORS_ALLOW_ALL_ORIGINS = True   # lock this down in production
+CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', default=True, cast=bool)
 CORS_ALLOW_HEADERS = [
     'content-type',
     'x-user-id',
