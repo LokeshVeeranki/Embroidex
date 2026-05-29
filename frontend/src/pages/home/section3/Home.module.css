@@ -1,0 +1,631 @@
+/* =========================================
+   FEATURED INVENTORY SECTION (Home3)
+========================================= */
+.machinesSection {
+  padding: 140px 0;
+  background-color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.machinesContainer {
+  width: 90%;
+  max-width: 1350px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   SYSTEM STATES (Loading / Error)
+========================================= */
+.systemStateContainer {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  background: var(--light-gray);
+  border-radius: 24px;
+  text-align: center;
+  font-family: var(--font-body);
+  color: #6b7280;
+  border: 1px dashed rgba(13, 27, 62, 0.1);
+}
+
+.spinningIcon {
+  animation: spin 1s linear infinite;
+  color: var(--primary-blue);
+  margin-bottom: 16px;
+}
+
+.errorText {
+  color: var(--accent-pink);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.retryBtn {
+  background: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retryBtn:hover {
+  background: var(--accent-pink);
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* =========================================
+   HEADER WITH BLUEPRINT WATERMARK
+========================================= */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.headerWatermark {
+  font-family: var(--font-heading);
+  font-size: clamp(8rem, 15vw, 14rem);
+  line-height: 0.75;
+  color: var(--primary-blue);
+  opacity: 0.03;
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  font-weight: 800;
+  pointer-events: none;
+  letter-spacing: -5px;
+}
+
+.headerContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 5vw, 4.2rem);
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--primary-blue);
+  letter-spacing: -1px;
+  text-wrap: balance;
+}
+
+.sectionDesc {
+  font-family: var(--font-body);
+  max-width: 480px;
+  font-size: 1.15rem;
+  color: #6b7280;
+  border-left: 3px solid var(--accent-pink);
+  padding-left: 24px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+/* =========================================
+   PREMIUM MACHINE GRID
+========================================= */
+.machineGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.premiumCard {
+  background: var(--white);
+  border-radius: 24px;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(13, 27, 62, 0.06);
+  box-shadow: 0 10px 30px rgba(13, 27, 62, 0.02);
+  overflow: hidden;
+  margin: 0;
+}
+
+.premiumCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(13, 27, 62, 0.08);
+  border-color: rgba(13, 27, 62, 0.12);
+}
+
+.premiumCard:focus-within {
+  outline: 2px solid var(--accent-pink);
+  outline-offset: 4px;
+}
+
+/* The "Stage" where the machine sits */
+.cardVisualStage {
+  position: relative;
+  height: 340px;
+  background: #f8fafc;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.machineImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 20px 25px rgba(0,0,0,0.1));
+}
+
+.premiumCard:hover .machineImage {
+  transform: scale(1.06);
+}
+
+.brandBadge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: var(--primary-blue);
+  color: var(--white);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(13, 27, 62, 0.2);
+}
+
+/* Floating Glass Specs Bar */
+.glassSpecsBar {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0 10px 20px rgba(13, 27, 62, 0.05);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  margin: 0;
+}
+
+.premiumCard:hover .glassSpecsBar {
+  transform: translateY(-5px);
+}
+
+.specPill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--primary-blue);
+}
+
+.specPill svg {
+  color: var(--accent-pink);
+}
+
+.specDivider {
+  width: 2px;
+  height: 16px;
+  background: rgba(13, 27, 62, 0.1);
+  border-radius: 2px;
+}
+
+/* Card Content Area */
+.cardBody {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.machineName {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  color: var(--primary-blue);
+  margin-bottom: 28px;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+  text-wrap: balance;
+}
+
+.priceActionRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.priceLabel {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 1px;
+}
+
+.priceValue {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  line-height: 1;
+}
+
+/* Buttons */
+.actionButtonGroup {
+  display: flex;
+  gap: 12px;
+}
+
+.iconBtnWa {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  color: #25d366;
+  border: 1.5px solid rgba(37, 211, 102, 0.25);
+}
+
+.iconBtnWa:hover {
+  background: #25d366;
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(37, 211, 102, 0.2);
+}
+
+.detailsBtn {
+  background: var(--light-gray);
+  color: var(--primary-blue);
+  border: 1.5px solid transparent;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0 24px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 44px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detailsBtn:hover {
+  background: var(--primary-blue);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(13, 27, 62, 0.15);
+}
+
+/* Accent Hover Line */
+.accentHoverLine {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 4px;
+  width: 0;
+  background: var(--accent-pink);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 4px 4px 0 0;
+}
+
+.premiumCard:hover .accentHoverLine {
+  width: 100%;
+}
+
+/* =========================================
+   BOTTOM CATALOG CTA
+========================================= */
+.bottomCtaWrapper {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.viewCatalogBtn {
+  background: var(--primary-blue);
+  color: var(--white);
+  padding: 10px 10px 10px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 24px rgba(13, 27, 62, 0.15);
+}
+
+.btnArrowCircle {
+  background: var(--white);
+  color: var(--primary-blue);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.viewCatalogBtn:hover {
+  background: var(--accent-pink);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(163, 0, 77, 0.25);
+}
+
+.viewCatalogBtn:hover .btnArrowCircle {
+  color: var(--accent-pink);
+  transform: rotate(-45deg);
+}
+
+/* =========================================
+   LOGIN MODAL STYLES
+========================================= */
+.loginModalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 27, 62, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.loginModalContent {
+  background: var(--white);
+  width: 100%;
+  max-width: 440px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.loginModalHeader {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, #1e3a8a 100%);
+  padding: 48px 40px 32px;
+  text-align: center;
+  position: relative;
+}
+
+.loginModalIcon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--white);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.loginModalTitle {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--white);
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.loginModalBody {
+  padding: 40px;
+  text-align: center;
+}
+
+.loginModalMessage {
+  font-family: var(--font-body);
+  color: #64748b;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.loginModalActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.loginModalPrimaryBtn {
+  background: var(--primary-blue);
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 20px rgba(13, 27, 62, 0.15);
+  border: none;
+  width: 100%;
+}
+
+.loginModalPrimaryBtn:hover {
+  background: var(--accent-pink);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(163, 0, 77, 0.25);
+}
+
+.loginModalSecondaryBtn {
+  background: transparent;
+  color: #64748b;
+  padding: 14px 32px;
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 2px solid #e2e8f0;
+  cursor: pointer;
+  width: 100%;
+}
+
+.loginModalSecondaryBtn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: var(--primary-blue);
+}
+
+.loginModalCloseBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.loginModalCloseBtn:hover {
+  background: var(--accent-pink);
+  transform: rotate(90deg);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* =========================================
+   REDUCED MOTION COMPLIANCE
+========================================= */
+@media (prefers-reduced-motion: reduce) {
+  .premiumCard, .machineImage, .loginModalContent, .loginModalOverlay {
+    transition: none;
+    animation: none;
+    transform: none;
+  }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+@media (max-width: 1024px) {
+  .headerContent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .sectionDesc {
+    border-left: none;
+    border-top: 3px solid var(--accent-pink);
+    padding-left: 0;
+    padding-top: 16px;
+  }
+
+  /* ADD THIS: Stack to 2 columns on tablets */
+  .machineGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .machinesSection {
+    padding: 100px 0;
+  }
+
+  .sectionTitle {
+    font-size: 2.8rem;
+  }
+
+  .machineGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cardVisualStage {
+    height: 300px;
+    padding: 30px;
+  }
+  
+  .priceActionRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  
+  .actionButtonGroup {
+    width: 100%;
+  }
+  
+  .detailsBtn {
+    flex-grow: 1;
+  }
+}

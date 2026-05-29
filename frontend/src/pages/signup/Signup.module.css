@@ -1,0 +1,340 @@
+/* =========================================
+   SIGNUP PAGE BASE
+========================================= */
+.signupPage {
+  min-height: 100vh;
+  background-color: var(--primary-blue);
+  background: radial-gradient(circle at center, #1a2a44 0%, #0d1b3e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dotGrid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.signupContainer {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* =========================================
+   BRAND IDENTITY
+========================================= */
+.brandSection {
+  margin-bottom: 40px;
+}
+
+.logoText {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.logoAccent {
+  color: var(--accent-pink);
+}
+
+.tagline {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+/* =========================================
+   REGISTRY MODULE (CARD)
+========================================= */
+.signupCard {
+  background-color: var(--white);
+  padding: 50px;
+  border-radius: 32px;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cardWatermark {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--primary-blue);
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+.cardHeader {
+  margin-bottom: 35px;
+}
+
+.securityBadge {
+  width: 55px;
+  height: 55px;
+  background-color: rgba(163, 0, 77, 0.08);
+  color: var(--accent-pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  margin: 0 auto 20px;
+}
+
+.cardHeader h2 {
+  font-family: var(--font-heading);
+  color: var(--primary-blue);
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+  letter-spacing: -1px;
+}
+
+.cardHeader p {
+  color: #6b7280;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* =========================================
+   FORM GRID SYSTEM
+========================================= */
+.form {
+  text-align: left;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.inputRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.inputGroup label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+/* =========================================
+   INPUT WRAPPER — icon always inside
+========================================= */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Left icon */
+.inputIcon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.inputWrapper:focus-within .inputIcon {
+  color: var(--accent-pink);
+}
+
+/* All inputs */
+.inputWrapper input {
+  width: 100%;
+  padding: 14px 15px 14px 45px;
+  border: 1.5px solid #f1f5f9;
+  border-radius: 12px;
+  background-color: var(--light-gray);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--primary-blue);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.inputWrapper input:focus {
+  outline: none;
+  background-color: var(--white);
+  border-color: var(--accent-pink);
+  box-shadow: 0 8px 20px rgba(163, 0, 77, 0.08);
+}
+
+/* Password input — extra right padding to avoid text hiding under eye icon */
+.passwordInput {
+  padding-right: 48px !important;
+}
+
+/* =========================================
+   EYE TOGGLE — inside the input field
+========================================= */
+.eyeBtn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  z-index: 2;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  line-height: 0;
+}
+
+.eyeBtn:hover {
+  color: var(--accent-pink);
+  background-color: rgba(163, 0, 77, 0.06);
+}
+
+.eyeBtn:focus {
+  outline: 2px solid var(--accent-pink);
+  outline-offset: 2px;
+}
+
+/* =========================================
+   CREATE ACCOUNT BUTTON
+========================================= */
+.signupBtn {
+  width: 100%;
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 6px 6px 6px 30px;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 30px;
+  box-shadow: 0 10px 25px rgba(13, 27, 62, 0.2);
+}
+
+.btnIconCircle {
+  background-color: var(--white);
+  color: var(--primary-blue);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  flex-shrink: 0;
+}
+
+.signupBtn:hover {
+  background-color: var(--accent-pink);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(163, 0, 77, 0.25);
+}
+
+.signupBtn:hover .btnIconCircle {
+  color: var(--accent-pink);
+  transform: rotate(-45deg);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+.cardFooter {
+  margin-top: 35px;
+  text-align: center;
+}
+
+.footerLine {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--light-gray);
+  margin: 0 auto 15px;
+  border-radius: 2px;
+}
+
+.cardFooter p {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.cardFooter a {
+  color: var(--accent-pink);
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.backHomeBtn {
+  margin-top: 30px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.backHomeBtn:hover {
+  color: var(--white);
+  border-bottom-color: var(--accent-pink);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 650px) {
+  .inputRow {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .signupCard {
+    padding: 40px 25px;
+  }
+}

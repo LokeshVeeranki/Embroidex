@@ -1,0 +1,339 @@
+/* =========================================
+   MACHINE DETAILS BASE
+========================================= */
+.pageWrapper {
+  min-height: 100vh;
+  background-color: var(--white);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.dotGrid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--primary-blue) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.04;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1350px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  padding: 140px 0 100px;
+}
+
+/* =========================================
+   ARCHITECTURAL HEADER
+========================================= */
+.detailsHeader {
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.headerWatermark {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-family: var(--font-heading);
+  font-size: 12rem;
+  font-weight: 800;
+  color: var(--primary-blue);
+  opacity: 0.03;
+  letter-spacing: -5px;
+  pointer-events: none;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #64748b;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.backLink:hover {
+  color: var(--accent-pink);
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+.mainLayout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* =========================================
+   LEFT: VISUAL STAGE
+========================================= */
+.visualSide {
+  position: relative;
+}
+
+.imageStage {
+  background: var(--light-gray);
+  border-radius: 32px;
+  padding: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid rgba(13, 27, 62, 0.05);
+  box-shadow: 0 20px 50px rgba(13, 27, 62, 0.03);
+}
+
+.stageBackdrop {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(circle, var(--white) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.mainImage {
+  max-width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 30px 40px rgba(0,0,0,0.12));
+}
+
+.tagNew, .tagUsed {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  z-index: 2;
+  color: var(--white);
+}
+
+.tagNew { background: #10b981; }
+.tagUsed { background: #f59e0b; }
+
+/* =========================================
+   RIGHT: TECHNICAL INFORMATION
+========================================= */
+.infoSide {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandBadge {
+  background: rgba(163, 0, 77, 0.08);
+  color: var(--accent-pink);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  width: fit-content;
+  margin-bottom: 24px;
+}
+
+.productTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  color: var(--primary-blue);
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+
+.mainDescription {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: #4b5563;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* =========================================
+   TECHNICAL SPECS GRID
+========================================= */
+.technicalSpecsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.specModule {
+  background: var(--white);
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+.specModule:hover {
+  border-color: var(--accent-pink);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(13, 27, 62, 0.05);
+}
+
+.specIcon {
+  width: 50px;
+  height: 50px;
+  background: var(--light-gray);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.specModule:hover .specIcon {
+  background: var(--accent-pink);
+  color: var(--white);
+}
+
+.specMeta small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.specMeta h4 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--primary-blue);
+  margin: 0;
+}
+
+/* =========================================
+   ACTION PLAQUE
+========================================= */
+.actionPlaque {
+  background: var(--primary-blue);
+  padding: 40px;
+  border-radius: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--white);
+  box-shadow: 0 25px 60px rgba(13, 27, 62, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.actionPlaque::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.valuationBox small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-pink);
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+.priceValue {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.waPillBtn {
+  background: #25d366;
+  color: var(--white);
+  padding: 16px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.waPillBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+  filter: brightness(1.1);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 1100px) {
+  .mainLayout {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .visualSide {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 120px 20px 60px; }
+  .headerWatermark { display: none; }
+  .imageStage { padding: 30px; border-radius: 24px; }
+  .productTitle { font-size: 2.2rem; }
+  .technicalSpecsGrid { grid-template-columns: 1fr; }
+  .actionPlaque { flex-direction: column; text-align: center; gap: 30px; padding: 40px 20px; }
+  .waPillBtn { width: 100%; justify-content: center; }
+}
+
+.notFoundPage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.backBtnPill {
+  margin-top: 20px;
+  padding: 12px 32px;
+  background: var(--primary-blue);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+}

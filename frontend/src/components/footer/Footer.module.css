@@ -1,0 +1,360 @@
+/* =========================================
+   FOOTER BASE
+========================================= */
+.footer {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding-top: 5rem;
+  border-top: 4px solid var(--accent-pink);
+  font-family: var(--font-body);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle ambient glow in the background */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 10% 0%, rgba(163, 0, 77, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.footerContainer {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr; /* Optimized proportion */
+  gap: 4rem 3rem;
+  padding-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   COLUMN 1: BRANDING
+========================================= */
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--accent-pink);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.logoText {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--white);
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover .logoText {
+  opacity: 0.9;
+}
+
+.logoAccent {
+  color: var(--accent-pink);
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+  max-width: 90%;
+}
+
+/* Social Icons */
+.socialLinks {
+  display: flex;
+  gap: 12px;
+}
+
+.socialLinks a {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.socialLinks a:hover {
+  background: var(--accent-pink);
+  border-color: var(--accent-pink);
+  color: var(--white);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(163, 0, 77, 0.4);
+}
+
+.socialLinks a:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}
+
+/* =========================================
+   COLUMN TITLES
+========================================= */
+.columnTitle {
+  font-family: var(--font-heading);
+  color: var(--white);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.columnTitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 40px;
+  height: 3px;
+  background-color: var(--accent-pink);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.column:hover .columnTitle::after {
+  width: 60px; /* Expands slightly when column is hovered */
+}
+
+/* =========================================
+   LINKS LISTS (Col 2 & 3)
+========================================= */
+.linksList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.linkItem {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 4px 0;
+}
+
+.linkIcon {
+  color: var(--accent-pink);
+  margin-right: 8px;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.linkItem:hover {
+  color: var(--white);
+  transform: translateX(4px);
+}
+
+.linkItem:hover .linkIcon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.linkItem:focus-visible {
+  outline: 2px solid var(--accent-pink);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* =========================================
+   CONTACT INFO (Col 4)
+========================================= */
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  font-style: normal; /* Resets default browser <address> italicization */
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* Premium Soft Pink Icon Wrappers */
+.iconWrapper {
+  background: rgba(163, 0, 77, 0.15); 
+  color: var(--accent-pink);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.contactItem:hover .iconWrapper {
+  background: var(--accent-pink);
+  color: var(--white);
+}
+
+.contactText {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 5px; /* Perfect optical alignment with the circular icon */
+}
+
+.contactLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+  width: fit-content;
+}
+
+.contactLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent-pink);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contactLink:hover {
+  color: var(--white);
+}
+
+.contactLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* =========================================
+   WHATSAPP CTA BUTTON
+========================================= */
+.waFooterBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #25D366;
+  color: var(--white);
+  padding: 14px 26px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.15);
+  width: fit-content;
+}
+
+.waFooterBtn:hover {
+  background-color: #20BD5A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+}
+
+.waFooterBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+}
+
+.waFooterBtn:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 2px;
+}
+
+/* =========================================
+   BOTTOM COPYRIGHT BAR
+========================================= */
+.bottomBar {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bottomContainer {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.credit {
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.credit:hover {
+  color: var(--accent-pink);
+}
+
+/* =========================================
+   MEDIA QUERIES (RESPONSIVE)
+========================================= */
+@media (max-width: 1024px) {
+  .footerContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer { 
+    padding-top: 4rem; 
+  }
+  .footerContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .description {
+    max-width: 100%;
+  }
+  .bottomContainer {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,389 @@
+/* =========================================
+   ABOUT SECTION BASE (Home2)
+========================================= */
+.aboutSection {
+  background-color: var(--light-gray);
+  padding: 140px 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(13, 27, 62, 0.05);
+}
+
+.aboutContainer {
+  width: 90%;
+  max-width: 1350px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr; /* Matches the proportion from Hero */
+  gap: 100px;
+  align-items: center;
+}
+
+/* =========================================
+   LEFT: IMAGE COMPOSITION
+========================================= */
+.imageSide {
+  position: relative;
+  width: 100%;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  margin: 0; /* Reset figure margin */
+}
+
+/* Structural Architectural Backdrop */
+.imageBackdrop {
+  position: absolute;
+  top: -24px;
+  left: -24px;
+  width: 90%;
+  height: 100%;
+  background: radial-gradient(circle at top left, rgba(163, 0, 77, 0.08), transparent 70%);
+  border: 1.5px solid rgba(163, 0, 77, 0.12);
+  border-radius: 36px;
+  z-index: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.imageSide:hover .imageBackdrop {
+  transform: translate(8px, 8px);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 600px; /* Generous height for premium feel */
+  border-radius: 32px;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 30px 60px rgba(13, 27, 62, 0.1), inset 0 0 0 1px rgba(255,255,255,0.2);
+  border: 8px solid var(--white);
+  background-color: #f3f4f6;
+}
+
+.mainAboutImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.imageSide:hover .mainAboutImage {
+  transform: scale(1.05);
+}
+
+.imageGradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13, 27, 62, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Floating Glass Experience Badge */
+.glassExperienceBadge {
+  position: absolute;
+  bottom: -15px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 24px 32px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 5;
+  box-shadow: 0 20px 40px rgba(13, 27, 62, 0.08), 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid rgba(255, 255, 255, 1);
+  animation: float 6s ease-in-out infinite;
+  margin: 0;
+}
+
+.badgeIconWrapper {
+  background: linear-gradient(135deg, var(--accent-pink) 0%, #ff3377 100%);
+  color: var(--white);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(163, 0, 77, 0.3);
+}
+
+.badgeNumber {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--primary-blue);
+  line-height: 1;
+  display: block;
+  letter-spacing: -1.5px;
+}
+
+.badgeText {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
+  display: block;
+  margin-top: 6px;
+}
+
+/* =========================================
+   RIGHT: CONTENT COMPOSITION
+========================================= */
+.contentSide {
+  display: flex;
+  flex-direction: column;
+}
+
+.subHeadingWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.subHeadingLine {
+  width: 48px;
+  height: 2px;
+  background: var(--accent-pink);
+  border-radius: 2px;
+}
+
+.subHeading {
+  font-family: var(--font-body);
+  color: var(--accent-pink);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.sectionHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  color: var(--primary-blue);
+  line-height: 1.1;
+  margin-bottom: 32px;
+  letter-spacing: -1px;
+  text-wrap: balance; /* Modern CSS: Prevents awkward orphans */
+}
+
+.aboutDescription {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: rgba(26, 26, 26, 0.75);
+  line-height: 1.8;
+  margin-bottom: 48px;
+  font-weight: 400;
+  text-wrap: pretty;
+}
+
+.aboutDescription strong {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+/* =========================================
+   MISSION & VISION CARDS (DASHBOARD STYLE)
+========================================= */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.missionCard {
+  background: var(--white);
+  padding: 24px 28px;
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  box-shadow: 0 4px 20px rgba(13, 27, 62, 0.03);
+  border: 1px solid rgba(13, 27, 62, 0.06);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.missionCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(13, 27, 62, 0.08);
+  border-color: rgba(163, 0, 77, 0.15);
+}
+
+.cardIconGlow {
+  background: rgba(163, 0, 77, 0.06);
+  color: var(--accent-pink);
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.missionCard:hover .cardIconGlow {
+  background: var(--accent-pink);
+  color: var(--white);
+  box-shadow: 0 10px 24px rgba(163, 0, 77, 0.25);
+  transform: scale(1.05);
+}
+
+.cardContent h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--primary-blue);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+  font-weight: 700;
+}
+
+.cardContent p {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* =========================================
+   SOPHISTICATED FEATURE PILLS
+========================================= */
+.featurePills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--white);
+  color: var(--primary-blue);
+  padding: 8px 24px 8px 8px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid rgba(13, 27, 62, 0.08);
+  box-shadow: 0 4px 15px rgba(13, 27, 62, 0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pillIcon {
+  background: var(--primary-blue);
+  color: var(--white);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.pill:hover {
+  border-color: var(--accent-pink);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(163, 0, 77, 0.1);
+  color: var(--accent-pink);
+}
+
+.pill:hover .pillIcon {
+  background: var(--accent-pink);
+}
+
+/* =========================================
+   REDUCED MOTION COMPLIANCE
+========================================= */
+@media (prefers-reduced-motion: reduce) {
+  .glassExperienceBadge {
+    animation: none;
+  }
+  .imageSide:hover .mainAboutImage,
+  .imageSide:hover .imageBackdrop {
+    transform: none;
+  }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+@media (min-width: 768px) and (max-width: 1200px) {
+  .cardsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 1200px) {
+  .aboutContainer {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+  
+  .imageSide {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  
+  .imageWrapper {
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 100px 0;
+  }
+
+  .sectionHeading {
+    font-size: clamp(2.2rem, 8vw, 2.8rem);
+  }
+
+  .imageWrapper {
+    height: 400px;
+    border-width: 6px;
+  }
+
+  .glassExperienceBadge {
+    padding: 16px 24px;
+    bottom: -20px;
+    right: -10px;
+    gap: 16px;
+    animation: none; /* Disable float on mobile */
+  }
+
+  .badgeIconWrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  .badgeNumber {
+    font-size: 2.2rem;
+  }
+
+  .missionCard {
+    flex-direction: column;
+    padding: 24px;
+    gap: 16px;
+  }
+
+  .featurePills {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .pill {
+    width: 100%;
+  }
+}

@@ -1,0 +1,100 @@
+/* =========================================
+   ADMIN FOOTER ARCHITECTURE
+========================================= */
+.adminFooter {
+  background-color: var(--white);
+  border-top: 1px solid rgba(13, 27, 62, 0.08); /* Clean technical separator */
+  padding: 20px 0;
+  margin-top: auto;
+  /* Matches Sidebar width (280px) to prevent overlap */
+  margin-left: 280px; 
+  position: relative;
+  z-index: 10;
+}
+
+.footerContainer {
+  width: 92%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* =========================================
+   LEFT SIDE: BRANDING
+========================================= */
+.leftSide p {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: #94a3b8; /* Professional slate gray */
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.leftSide strong {
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+
+/* =========================================
+   RIGHT SIDE: DEV CREDITS
+========================================= */
+.devBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.techLabel {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #cbd5e1;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.versionTag {
+  font-family: "Courier New", Courier, monospace; /* Technical feel */
+  font-size: 0.75rem;
+  color: var(--primary-blue);
+  font-weight: 700;
+  background: var(--light-gray);
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(13, 27, 62, 0.05);
+  transition: all 0.3s ease;
+}
+
+.versionTag:hover {
+  color: var(--accent-pink);
+  border-color: rgba(163, 0, 77, 0.2);
+  background: rgba(163, 0, 77, 0.03);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 1200px) {
+  .adminFooter {
+    margin-left: 0; /* Align to full width when sidebar collapses */
+  }
+}
+
+@media (max-width: 768px) {
+  .footerContainer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .hideMobile {
+    display: none;
+  }
+  
+  .devBox {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

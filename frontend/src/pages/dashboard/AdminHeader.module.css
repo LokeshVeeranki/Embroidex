@@ -1,0 +1,231 @@
+/* =========================================
+   ADMIN HEADER BASE
+========================================= */
+.adminHeader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(100% - 280px); /* Adjust based on your sidebar width */
+  height: 72px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(13, 27, 62, 0.08);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  padding: 0 40px;
+}
+
+.headerContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+/* Mobile Menu Toggle */
+.mobileMenuToggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--primary-blue);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.mobileMenuToggle:hover {
+  background: var(--light-gray);
+}
+
+/* =========================================
+   SEARCH BAR
+========================================= */
+.headerCenter {
+  flex: 1;
+  max-width: 500px;
+}
+
+.commandSearch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--light-gray);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 0 15px;
+  transition: all 0.3s ease;
+}
+
+.commandSearch:focus-within {
+  background: var(--white);
+  border-color: var(--accent-pink);
+  box-shadow: 0 4px 20px rgba(163, 0, 77, 0.06);
+}
+
+.commandSearch svg {
+  color: #94a3b8;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--primary-blue);
+  outline: none;
+}
+
+/* =========================================
+   PROFILE & DROPDOWN
+========================================= */
+.headerRight {
+  display: flex;
+  align-items: center;
+}
+
+.profileWrapper {
+  position: relative;
+}
+
+.profileTrigger {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.profileTrigger:hover {
+  background: var(--light-gray);
+}
+
+.avatarWrapper {
+  width: 38px;
+  height: 38px;
+  background: var(--primary-blue);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(13, 27, 62, 0.1);
+}
+
+.userName {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.chevron {
+  color: #94a3b8;
+  transition: transform 0.3s ease;
+  display: flex;
+}
+
+.chevronRotate {
+  transform: rotate(180deg);
+}
+
+/* =========================================
+   DROPDOWN MENU
+========================================= */
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 240px;
+  background: var(--white);
+  border-radius: 16px;
+  border: 1px solid rgba(13, 27, 62, 0.08);
+  box-shadow: 0 15px 35px rgba(13, 27, 62, 0.12);
+  padding: 8px;
+  animation: slideIn 0.3s ease;
+  transform-origin: top right;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.dropdownHeader {
+  padding: 12px 16px;
+}
+
+.roleTag {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent-pink);
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.userEmail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.divider {
+  height: 1px;
+  background: #f1f5f9;
+  margin: 8px 0;
+}
+
+.logoutItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  color: #ef4444; /* Alert Red */
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.logoutItem:hover {
+  background: #fef2f2;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 1200px) {
+  .adminHeader { width: 100%; }
+  .mobileMenuToggle { display: flex; align-items: center; justify-content: center; }
+}
+
+@media (max-width: 768px) {
+  .adminHeader { padding: 0 20px; }
+  .headerCenter { display: none; }
+  .userName { display: none; }
+  .profileTrigger { padding: 4px; }
+  .mobileMenuToggle { display: flex; align-items: center; justify-content: center; }
+}

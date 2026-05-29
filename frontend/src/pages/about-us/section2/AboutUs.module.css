@@ -1,0 +1,241 @@
+/* =========================================
+   ABOUT US 2 SECTION
+========================================= */
+.aboutTwo {
+  padding: 140px 0;
+  background-color: var(--white);
+  position: relative;
+}
+
+.container {
+  width: 90%;
+  max-width: 1350px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.sectionHeader {
+  margin-bottom: 80px;
+  text-align: left; /* Switched to left for a tech feel */
+}
+
+.subHeadingWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.subHeadingLine {
+  width: 40px;
+  height: 3px;
+  background: var(--accent-pink);
+  border-radius: 2px;
+}
+
+.subHeading {
+  color: var(--accent-pink);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+}
+
+.mainHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  color: var(--primary-blue);
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+/* =========================================
+   EXPERTISE GRID
+========================================= */
+.expertiseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+.expertCard {
+  background-color: var(--light-gray);
+  padding: 50px 40px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(13, 27, 62, 0.05);
+}
+
+.expertCard:hover {
+  background-color: var(--white);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(13, 27, 62, 0.08);
+  border-color: rgba(163, 0, 77, 0.2);
+}
+
+/* Structural Card Watermark */
+.cardWatermark {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-family: var(--font-heading);
+  font-size: 6rem;
+  font-weight: 800;
+  color: var(--primary-blue);
+  opacity: 0.03;
+  transition: all 0.4s ease;
+}
+
+.expertCard:hover .cardWatermark {
+  opacity: 0.06;
+  transform: translateX(-10px);
+}
+
+.iconContainer {
+  color: var(--accent-pink);
+  background: rgba(163, 0, 77, 0.08);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+}
+
+.expertCard:hover .iconContainer {
+  background: var(--accent-pink);
+  color: var(--white);
+  box-shadow: 0 10px 20px rgba(163, 0, 77, 0.2);
+}
+
+.expertCard h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--primary-blue);
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+}
+
+.expertCard p {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+/* =========================================
+   TECHNICAL PLAQUE (BANNER)
+========================================= */
+.technicalPlaque {
+  background-color: var(--primary-blue);
+  border-radius: 24px;
+  padding: 60px 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(13, 27, 62, 0.2);
+}
+
+.plaqueInnerBorder {
+  position: absolute;
+  inset: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+.plaqueItem {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  position: relative;
+  z-index: 2;
+}
+
+.plaqueIcon {
+  color: var(--accent-pink);
+  background: rgba(255, 255, 255, 0.05);
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.plaqueLabel {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-pink);
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.plaqueText h4 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+  color: var(--white);
+}
+
+.plaqueText p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin: 0;
+}
+
+.plaqueDivider {
+  width: 1px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 1024px) {
+  .technicalPlaque {
+    flex-direction: column;
+    gap: 50px;
+    padding: 60px 20px;
+  }
+
+  .plaqueItem {
+    text-align: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .plaqueDivider {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .aboutTwo {
+    padding: 80px 0;
+  }
+
+  .expertiseGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .expertCard {
+    padding: 40px 24px;
+  }
+}

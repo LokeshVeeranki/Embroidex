@@ -1,0 +1,54 @@
+:root {
+  /* Brand Palette */
+  --primary-blue: #0d1b3e;
+  --accent-pink: #a3004d;
+  --accent-hover: #82003d;
+  
+  /* Neutral Palette */
+  --white: #ffffff;
+  --light-gray: #f9f9f9;
+  --text-main: #1a1a1a;
+  
+  /* Font Stacks */
+  --font-heading: 'Roboto Slab', Georgia, serif;
+  --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Transitions */
+  --transition: all 0.3s ease;
+}
+
+/* Modern Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--white);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased; /* Makes fonts look crisper on Mac */
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-blue);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
